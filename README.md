@@ -1,5 +1,7 @@
 # play-ws-standalone-json4s
 
+[![Build Status](https://travis-ci.org/tototoshi/play-ws-standalone-json4s.png)](https://travis-ci.org/tototoshi/play-ws-standalone-json4s)
+
 
 ## Usage
 
