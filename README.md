@@ -7,6 +7,13 @@
 
 
 ```scala
+import com.github.tototoshi.play.json4s.ws.jackson.Json4sBodyReadables._
+import com.github.tototoshi.play.json4s.ws.jackson.Json4sBodyWritables._
+```
+
+or
+
+```scala
 import com.github.tototoshi.play.json4s.ws.native.Json4sBodyReadables._
 import com.github.tototoshi.play.json4s.ws.native.Json4sBodyWritables._
 ```
