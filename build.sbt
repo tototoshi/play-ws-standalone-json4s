@@ -24,9 +24,24 @@ val baseTestSettings = Seq(
   javaOptions in Test ++= Seq("-Dplay.server.provider=play.core.server.NettyServerProvider")
 )
 
+val publishSettings = Seq(
+  publishMavenStyle := true,
+  publishTo := _publishTo(version.value),
+  publishArtifact in Test := false,
+  pomExtra := _pomExtra
+)
+
+val nonPublishSettings = Seq(
+  publishArtifact := false,
+  publish := {},
+  publishLocal := {},
+  parallelExecution in Test := false
+)
+
 lazy val `play-ws-standalone-json4s-core` = project
   .in(file("core"))
   .settings(baseSettings)
+  .settings(publishSettings)
   .settings(
     name := """play-ws-standalone-json4s-core""",
     libraryDependencies ++= Seq(
@@ -38,6 +53,7 @@ lazy val `play-ws-standalone-json4s-native` = project
   .in(file("native"))
   .settings(baseSettings)
   .settings(baseTestSettings)
+  .settings(publishSettings)
   .settings(
     name := """play-ws-standalone-json4s-native""",
     libraryDependencies ++= Seq(
@@ -50,6 +66,7 @@ lazy val `play-ws-standalone-json4s-jackson` = project
   .in(file("jackson"))
   .settings(baseSettings)
   .settings(baseTestSettings)
+  .settings(publishSettings)
   .settings(
     name := """play-ws-standalone-json4s-jackson""",
     libraryDependencies ++= Seq(
@@ -61,8 +78,36 @@ lazy val `play-ws-standalone-json4s-jackson` = project
 lazy val `play-ws-standalone-json4s` = project
   .in(file("."))
   .settings(baseSettings)
+  .settings(nonPublishSettings)
   .aggregate(
     `play-ws-standalone-json4s-core`,
     `play-ws-standalone-json4s-native`,
     `play-ws-standalone-json4s-jackson`
   )
+
+def _publishTo(v: String) = {
+  val nexus = "https://oss.sonatype.org/"
+  if (v.trim.endsWith("SNAPSHOT")) Some("snapshots" at nexus + "content/repositories/snapshots")
+  else Some("releases" at nexus + "service/local/staging/deploy/maven2")
+}
+
+val _pomExtra =
+  <url>https://github.com/tototoshi/play-ws-standalone-json4s</url>
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>git@github.com:tototoshi/play-ws-standalone-json4s.git</url>
+    <connection>scm:git:git@github.com:tototoshi/play-ws-standalone-json4s.git</connection>
+  </scm>
+  <developers>
+    <developer>
+      <id>tototoshi</id>
+      <name>Toshiyuki Takahashi</name>
+      <url>https://tototoshi.github.io</url>
+    </developer>
+  </developers>
