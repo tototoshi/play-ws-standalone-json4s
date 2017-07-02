@@ -1,3 +1,5 @@
+val _version = "0.1.0"
+
 val playVersion = "2.6.0"
 val playWsVersion = "1.0.0"
 val json4sVersion = "3.5.2"
@@ -5,7 +7,8 @@ val scalatestVersion = "3.0.1"
 val guiceVersion = "4.1.0"
 
 val baseSettings = Seq(
-  version := "0.1.0-SNAPSHOT",
+  organization := "com.github.tototoshi",
+  version := _version,
   scalaVersion := "2.12.2",
   crossScalaVersions ++= Seq("2.11.8", "2.12.2"),
   scalacOptions ++= Seq("-deprecation", "-feature"),
