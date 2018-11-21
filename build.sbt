@@ -35,10 +35,7 @@ val publishSettings = Seq(
 )
 
 val nonPublishSettings = Seq(
-  publishArtifact := false,
-  publish := {},
-  publishLocal := {},
-  parallelExecution in Test := false
+  skip in publish := true
 )
 
 lazy val `play-ws-standalone-json4s-core` = project
