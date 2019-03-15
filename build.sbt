@@ -1,4 +1,4 @@
-val _version = "0.2.0"
+val _version = "0.3.0-SNAPSHOT"
 
 val playVersion = "2.6.20"
 val playWsVersion = "1.1.12"
