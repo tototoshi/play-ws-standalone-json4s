@@ -1,5 +1,7 @@
 # play-ws-standalone-json4s
 
+[![Scala CI](https://github.com/tototoshi/play-ws-standalone-json4s/actions/workflows/scala.yml/badge.svg)](https://github.com/tototoshi/play-ws-standalone-json4s/actions/workflows/scala.yml)
+
 BodyReadable/BodyWritable for Json4s
 
 
