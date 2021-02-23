@@ -14,34 +14,37 @@ trait HasActorSystem {
   implicit var actorMaterializer: Materializer
 }
 
-trait WithActorSystem extends TestSuiteMixin with HasActorSystem { self: TestSuite =>
+trait WithActorSystem extends BeforeAndAfterEach with HasActorSystem { self: TestSuite =>
   implicit var actorSystem: ActorSystem = _
   implicit var actorMaterializer: Materializer = _
   implicit var executionContext: ExecutionContext = _
 
-  abstract override def withFixture(test: NoArgTest): Outcome = {
+  override protected def beforeEach(): Unit = {
     actorSystem = ActorSystem()
     executionContext = actorSystem.dispatcher
     actorMaterializer = ActorMaterializer()
-    try {
-      super.withFixture(test)
-    } finally {
-      Await.result(actorSystem.terminate(), Duration("30s"))
-    }
+    super.beforeEach()
   }
+
+  override protected def afterEach(): Unit = {
+    super.afterEach()
+    Await.result(actorSystem.terminate(), Duration("30s"))
+  }
+
 }
 
-trait WithWsClient extends TestSuiteMixin { self: TestSuite with HasActorSystem =>
+trait WithWsClient extends BeforeAndAfterEach { self: TestSuite with HasActorSystem =>
 
   protected var ws: StandaloneWSClient = _
 
-  abstract override def withFixture(test: NoArgTest): Outcome = {
+  override protected def beforeEach(): Unit = {
     ws = StandaloneAhcWSClient()
-    try {
-      super.withFixture(test)
-    } finally {
-      ws.close()
-    }
+    super.beforeEach()
+  }
+
+  override protected def afterEach(): Unit = {
+    super.afterEach()
+    ws.close()
   }
 
 }
