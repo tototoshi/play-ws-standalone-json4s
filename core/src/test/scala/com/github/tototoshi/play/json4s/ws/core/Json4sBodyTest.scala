@@ -1,18 +1,19 @@
 package com.github.tototoshi.play.json4s.ws.core
 
 import org.json4s.{DefaultFormats, Extraction, JValue, JsonMethods}
-import org.scalatest.{FunSuite, Matchers}
 import play.api.libs.json.JsValue
 import play.api.libs.ws.{BodyReadable, BodyWritable}
 import play.api.mvc.{DefaultActionBuilder, PlayBodyParsers, Request}
 import play.core.server.Server
+import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.matchers.should.Matchers
 
 abstract class Json4sBodyTest[T](
     methods: JsonMethods[T]
   )(implicit
     bodyReadable: BodyReadable[JValue],
     bodyWritable: BodyWritable[JValue])
-  extends FunSuite
+  extends AnyFunSuite
   with Matchers
   with WithWsClient
   with WithActorSystem {
