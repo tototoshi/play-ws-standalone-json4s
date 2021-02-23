@@ -8,13 +8,13 @@ BodyReadable/BodyWritable for Json4s
 ## Install
 
 ```scala
-libraryDependencies += "com.github.tototoshi" %% "play-ws-standalone-json4s-jackson" % "0.3.0"
+libraryDependencies += "com.github.tototoshi" %% "play-ws-standalone-json4s-jackson" % "0.3.1"
 ```
 
 or
 
 ```scala
-libraryDependencies += "com.github.tototoshi" %% "play-ws-standalone-json4s-native" % "0.3.0"
+libraryDependencies += "com.github.tototoshi" %% "play-ws-standalone-json4s-native" % "0.3.1"
 ```
 
 ## Usage
