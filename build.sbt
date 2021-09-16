@@ -9,8 +9,8 @@ val guiceVersion = "5.0.1"
 val baseSettings = Seq(
   organization := "com.github.tototoshi",
   version := _version,
-  scalaVersion := "2.13.5",
-  crossScalaVersions ++= Seq("2.11.12", "2.12.13", "2.13.5"),
+  scalaVersion := "2.13.6",
+  crossScalaVersions ++= Seq("2.11.12", "2.12.13", "2.13.6"),
   scalacOptions ++= Seq("-deprecation", "-feature"),
   libraryDependencies ++= Seq(
     "com.typesafe.play" %% "play-ahc-ws-standalone" % playWsVersion,
