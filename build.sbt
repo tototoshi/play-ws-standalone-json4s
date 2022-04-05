@@ -2,7 +2,7 @@ val _version = "0.3.2-SNAPSHOT"
 
 val playVersion = "2.7.9"
 val playWsVersion = "2.0.8"
-val json4sVersion = "4.0.4"
+val json4sVersion = "4.0.5"
 val scalatestVersion = "3.2.11"
 val guiceVersion = "5.0.1"
 
