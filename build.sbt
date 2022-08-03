@@ -2,15 +2,15 @@ val _version = "0.3.2-SNAPSHOT"
 
 val playVersion = "2.7.9"
 val playWsVersion = "2.0.8"
-val json4sVersion = "4.0.4"
-val scalatestVersion = "3.2.12"
+val json4sVersion = "4.0.5"
+val scalatestVersion = "3.2.13"
 val guiceVersion = "5.0.1"
 
 val baseSettings = Seq(
   organization := "com.github.tototoshi",
   version := _version,
   scalaVersion := "2.13.8",
-  crossScalaVersions ++= Seq("2.11.12", "2.12.15", "2.13.8"),
+  crossScalaVersions ++= Seq("2.11.12", "2.12.16", "2.13.8"),
   scalacOptions ++= Seq("-deprecation", "-feature"),
   libraryDependencies ++= Seq(
     "com.typesafe.play" %% "play-ahc-ws-standalone" % playWsVersion,
