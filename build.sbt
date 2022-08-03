@@ -4,7 +4,7 @@ val playVersion = "2.7.9"
 val playWsVersion = "2.0.8"
 val json4sVersion = "4.0.4"
 val scalatestVersion = "3.2.12"
-val guiceVersion = "5.1.0"
+val guiceVersion = "5.0.1"
 
 val baseSettings = Seq(
   organization := "com.github.tototoshi",
