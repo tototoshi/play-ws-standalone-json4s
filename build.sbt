@@ -3,7 +3,7 @@ val _version = "0.3.2-SNAPSHOT"
 val playVersion = "2.7.9"
 val playWsVersion = "2.0.8"
 val json4sVersion = "4.0.6"
-val scalatestVersion = "3.2.16"
+val scalatestVersion = "3.2.18"
 val guiceVersion = "5.1.0"
 
 val baseSettings = Seq(
