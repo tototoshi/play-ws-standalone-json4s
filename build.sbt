@@ -10,7 +10,7 @@ val baseSettings = Seq(
   organization := "com.github.tototoshi",
   version := _version,
   scalaVersion := "2.13.11",
-  crossScalaVersions := Seq("2.11.12", "2.12.18", "2.13.11"),
+  crossScalaVersions := Seq("2.11.12", "2.12.19", "2.13.11"),
   scalacOptions ++= Seq("-deprecation", "-feature"),
   libraryDependencies ++= Seq(
     "com.typesafe.play" %% "play-ahc-ws-standalone" % playWsVersion,
